@@ -1,0 +1,88 @@
+29 endpoints
+
+JESUS
+
+ASISTENTE
+/asistentes [GET,POST]  -> todos los asistentes
+/asistente/{id_asistente} [GET,PUT,DELETE]  -> un asistente por su id, borrarlo y editarlo  (habra que borrar/añadir tambien sus Entities relacionadas por las claves ajenas)
+
+AJENO
+/asistentes/ajenos [GET,POST]  -> todos los ajenos, añadir un ajeno
+/asistentes/ajeno/{id_ajeno} [GET,PUT,DELETE]  -> buscamos un ajeno por su id, lo editamos y lo eliminamos  (habra que borrar/añadir tambien sus Entities relacionadas por las claves ajenas)
+
+CONGRESO
+/congreso [GET]  -> la información del congreso
+
+-----------------------------------------------------------
+LAURA
+
+SOCIO
+/socios [GET]  -> todos los socios
+/socio/{id_socio} [GET,DELETE]  -> buscamos un socio por su id, lo editamos y lo eliminamos  (habra que borrar/añadir tambien sus Entities relacionadas por las claves ajenas)
+/asistente/{id_asistente}/socio [POST] -> añadir un socio
+
+IMPORTANTE -> los asistentes siempre son ajenos o socios, asi que cuando hagamos el método de añadir un nuevo asistente, hay que añadirlo tambien como ajeno o socio
+
+PONENTE
+/ponentes [GET]  -> todos los ponentes
+/ponentes/socio/{id_socio} [GET,POST,DELETE]  -> buscamos un ponente por el id de socio, añadimos y borramos un socio de Ponente por su id (habra que borrar/añadir tambien sus Entities relacionadas por las claves ajenas)
+
+PAGO
+/entrada/{id_entrada}/pago [GET,DELETE,POST] -> devuelve de una entrada su pago con to do lo demás, tarjeta o paypal,
+cuando vayamos a buscar el método de pago habrá que consultar en qué tabla esta el id
+
+-----------------------------------------------------------
+AARON
+
+EVENTO
+/ponente/{id_ponente}/eventos [GET]  -> todos los eventos que da un ponente
+/ponente/{id_ponente}/evento/{id_evento} [GET,POST]  -> un evento concreto de un ponente por sus ids
+
+BONO
+/bonos [GET]
+/asistente/{id_asistente}/bonos [GET,POST]  -> buscamos todos los bonos de un asistente por su id  , añadimos los bonos para un asistente (hay que añadir 10, quien haga este endpoint que haga uno y lo meta en un for)
+/asistente/{id_asistente}/bono/{id_bono} [GET,DELETE]
+
+----------------------------------------------------------
+PONY
+
+ACTIVIDAD
+/actividades [GET]  -> todas las actividades
+/actividad/{id_actividad} [GET]  -> buscamos una actividad por su id
+/ajeno/{id_ajeno}/actividades [GET]   -> todas las actividades a las que va un ajeno
+/ajeno/{id_ajeno}/actividad/{id_actividad} [POST,DELETE]   -> buscamos una actividad concreta de un asistente concreto por sus ids
+
+EMPRESA
+/empresas [GET]  -> todas las empresas
+/empresa/{id_empresa} [GET]  -> buscamos una empresa por su id
+
+----------------------------------------------------------
+ALEJANDRO
+
+PATROCINADOR
+/patrocinadores [GET]   -> todos los patrocinadores
+/patrocinador/empresa/{id_empresa} [GET,POST,DELETE]   ->  buscamos la empresa en la tabla patrocinador para comprobar si lo es
+
+ENTRADA
+/entradas [GET]   -> sacamos todas las entradas y creamos una cuando se registra
+/asistente/{id_asistente}/entrada [GET,POST,DELETE]    -> sacamos la entrada de un asistente
+
+-------------------------------------------------------------
+PAU
+
+VALORACION
+/asistente/{id_asistente}/valora/{id_evento}[GET,POST] -> sacamos una valoracion de un asistente, añadimos una valoración y editamos una valoracion
+/evento/{id_evento}/valoraciones [GET] -> buscamos todas las valoraciones de un evento para hacerle la media de valoración
+
+PUESTOCOMIDA
+/puestos-comida [GET]  -> todos los puestos de comida
+/puestos-comida/{id_puesto} [GET] -> buscamos un puesto por su id
+
+
+
+
+
+
+
+
+
