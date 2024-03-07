@@ -1,0 +1,19 @@
+version: '2'
+services:
+  web:
+    build: .
+    container_name: congresofedem_api
+    volumes:
+      - .:/code
+      - ./provisioning/sites-enabled:/etc/apache2/sites-enabled
+    env_file:
+      - .env.webapp
+    ports:
+      - 8001:80
+    networks:
+      - lasenia-shared
+    tty: true
+
+networks:
+  lasenia-shared:
+    external: true
