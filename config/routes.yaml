@@ -1,0 +1,291 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+#53 ENDPOINTS
+#-----------------------------------------------------------------------------------------------------------------------
+#ACTIVIDAD
+#6
+
+actividades:
+    path: /actividades
+    controller: App\Controller\ActividadController::actividades
+    methods: [GET]
+
+actividad:
+    path: /actividad/{id}
+    controller: App\Controller\ActividadController::actividad
+    methods: [GET]
+
+actividadAsistentes:
+    path: /actividadAsistentes/{id_actividad}
+    controller: App\Controller\ActividadController:actividadAsistentes
+    methods: [GET]
+
+actividadesAjeno:
+    path: /ajeno/{id_ajeno}/actividades
+    controller: App\Controller\ActividadController::actividadesAjeno
+    methods: [GET]
+
+ajenoActividad:
+    path: /ajeno/{id_ajeno}/actividad/{id_actividad}
+    controller: App\Controller\ActividadController::ajenoActividad
+    methods: [POST, DELETE]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#AJENO
+#4
+
+ajenos:
+    path: /ajenos
+    controller: App\Controller\AjenoController::ajenos
+    methods: [GET]
+
+ajeno:
+    path: /asistente/{id_asistente}/ajeno
+    controller: App\Controller\AjenoController::ajeno
+    methods: [GET, DELETE]
+
+asistente_ajeno:
+    path: /asistente/{id}/ajeno
+    controller: App\Controller\AjenoController::asistente_ajeno
+    methods: [POST]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#ASISTENTE
+#6
+
+asistentes:
+    path: /asistentes
+    controller: App\Controller\AsistenteController::asistentes
+    methods: [GET, POST]
+
+asistente:
+    path: /asistente/{id}
+    controller: App\Controller\AsistenteController::asistente
+    methods: [GET, PUT, DELETE]
+
+logearAsistente:
+    path: /logear
+    controller: App\Controller\AsistenteController::logearAsistente
+    methods: [POST]
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+#BONO
+#4
+
+asistenteBonos:
+    path: /asistente/{id_asistente}/bonos
+    controller: App\Controller\BonoController:asistenteBonos
+    methods: [GET]
+
+asistenteBono:
+    path: /asistente/{id_asistente}/bono/{id_bono}
+    controller: App\Controller\BonoController:asistenteBono
+    methods: [GET, DELETE]
+
+#metodo para añadirle los bonos a un asistente cuando se registra
+añadirBonosAsistente:
+    path: /anyadirBonosAsistente/{id_asistente}
+    controller: App\Controller\BonoController::anyadirBonosAsistente
+    methods: [POST]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#CONGRESO
+#1
+
+congreso:
+    path: /congreso
+    controller: App\Controller\CongresoController::congreso
+    methods: [GET]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#EMPRESA
+#2
+
+empresas:
+    path: /empresas
+    controller: App\Controller\EmpresaController::empresas
+    methods: [GET]
+
+empresa:
+    path: /empresa/{id}
+    controller: App\Controller\EmpresaController::empresa
+    methods: [GET]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#ENTRADA
+#4
+
+entradas:
+    path: /entradas
+    controller: App\Controller\EntradaController::entradas
+    methods: [GET]
+
+entrada:
+    path: /asistente/{id_asistente}/entrada
+    controller: App\Controller\EntradaController::entrada
+    methods: [GET,POST,DELETE]
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+#EVENTOS
+#6
+
+evento:
+    path: /evento/{id_evento}
+    controller: App\Controller\EventoController:evento
+    methods: [GET]
+
+eventos:
+    path: /eventos
+    controller: App\Controller\EventoController:eventos
+    methods: [GET]
+
+eventoPonentes:
+    path: /eventoPonentes/{id_evento}
+    controller: App\Controller\EventoController:eventoPonentes
+    methods: [GET]
+
+ponenteeventos:
+    path: /ponente/{id_ponente}/eventos
+    controller: App\Controller\EventoController:ponenteEventos
+    methods: [GET]
+
+ponenteevento:
+    path: /ponente/{id_ponente}/evento/{id_evento}
+    controller: App\Controller\EventoController:ponenteEvento
+    methods: [GET, POST]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#PAGO
+#3
+
+pago:
+    path: /entrada/{id_entrada}/pago
+    controller: App\Controller\PagoController::pago
+    methods: [GET,POST,DELETE]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#PATROCINADOR
+#4
+
+patrocinadores:
+    path: /patrocinadores
+    controller: App\Controller\PatrocinadorController::patrocinadores
+    methods: [GET]
+
+patrocinador:
+    path: /patrocinador/empresa/{cif_empresa}
+    controller: App\Controller\PatrocinadorController::patrocinador
+    methods: [GET,POST,DELETE]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#PONENTE
+#4
+
+ponentes:
+    path: /ponentes
+    controller: App\Controller\PonenteController::ponentes
+    methods: [GET]
+
+ponenteSocio:
+    path: /ponente/socio/{id_socio}
+    controller: App\Controller\PonenteController::ponenteSocio
+    methods: [GET,POST,DELETE]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#PUESTOCOMIDA
+#2
+
+puestosComida:
+    path: /puestosComida
+    controller: App\Controller\PuestoComidaController::puestosComida
+    methods: [GET]
+
+puestoComida:
+    path: /puestoComida/{id_puesto_comida}
+    controller: App\Controller\PuestoComidaController::puestoComida
+    methods: [GET]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#SOCIO
+#4
+
+socios:
+    path: /socios
+    controller: App\Controller\SocioController::socios
+    methods: [GET]
+
+socio:
+    path: /asistente/{id_asistente}/socio
+    controller: App\Controller\SocioController::socio
+    methods: [GET,DELETE]
+
+añadirSocio:
+    path: /asistente/{id_asistente}/socio
+    controller: App\Controller\SocioController::anyadirSocio
+    methods: [POST]
+
+#-----------------------------------------------------------------------------------------------------------------------
+#VALORACION
+#3
+
+eventoValoraciones:
+    path: /evento/{id_evento}/valoraciones
+    controller: App\Controller\ValoracionController::eventoValoraciones
+    methods: [GET]
+
+valoracion:
+    path: /asistente/{id_asistente}/valora/{id_evento}
+    controller: App\Controller\ValoracionController::valoracion
+    methods: [GET,POST]
+
+
+eventoAsistentes:
+    path: /evento/{id_evento}/asistentes
+    controller: App\Controller\ValoracionController::eventoAsistentes
+    methods: [GET]
+
+asistenteEventos:
+    path: /asistente/{id_asistente}/eventos
+    controller: App\Controller\ValoracionController::asistenteEventos
+    methods: [GET]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
